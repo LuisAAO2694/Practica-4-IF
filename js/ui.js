@@ -1,4 +1,5 @@
 import { addToCart } from "./cart.js";
+import { getCartCount } from "./cart.js";
 
 export function renderProducts(products) {
     const container = document.getElementById("mainList");
@@ -31,4 +32,16 @@ export function renderProducts(products) {
             addToCart(products[index]);
         });
     });
+}
+
+//Actualizar contador del carrito
+export function updateCartCount() 
+{
+    const count = getCartCount();
+    const badge = document.getElementById("cart-count");
+
+    if (badge) 
+    {
+        badge.innerText = count;
+    }
 }

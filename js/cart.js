@@ -30,6 +30,10 @@ export function addToCart(product)
 
     saveCart(cart);
     alert("Producto agregado!");
+
+    import("./ui.js").then(module => {
+        module.updateCartCount();
+    });
 }
 
 //Eliminar producto del carrito
@@ -37,6 +41,11 @@ export function removeFromCart(id)
 {
     let cart = getCart().filter(item => item.id !== id);
     saveCart(cart);
+
+    import("./ui.js").then(module => {
+        module.updateCartCount();
+    });
+
     location.reload();
 }
 
@@ -49,6 +58,11 @@ export function updateQuantity(id, qty)
     if (item) item.quantity = parseInt(qty);
 
     saveCart(cart);
+
+    import("./ui.js").then(module => {
+        module.updateCartCount();
+    });
+
     location.reload();
 }
 
@@ -56,4 +70,11 @@ export function updateQuantity(id, qty)
 export function getTotal() 
 {
     return getCart().reduce((acc, item) => { return acc + item.price * item.quantity; }, 0);
+}
+
+//acuatlizar items carrito
+export function getCartCount()
+{
+    const cart = getCart();
+    return cart.reduce((acc, item) => acc + item.quantity, 0);
 }

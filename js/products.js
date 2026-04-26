@@ -1,5 +1,5 @@
 import { getProducts } from "./api.js";
-import { renderProducts } from "./ui.js";
+import { renderProducts, updateCartCount } from "./ui.js";
 
 let allProducts = [];
 let currentPage = 1;
@@ -9,6 +9,7 @@ async function init()
 {
     allProducts = await getProducts();
     renderPage(currentPage);
+    updateCartCount();
 }
 
 function renderPage(page) 

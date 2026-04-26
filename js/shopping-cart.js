@@ -1,4 +1,5 @@
 import { getCart, removeFromCart, updateQuantity, getTotal } from "./cart.js";
+import { updateCartCount } from "./ui.js";
 
 function renderCart() 
 {
@@ -12,6 +13,8 @@ function renderCart()
     if (cart.length === 0) {
         container.innerHTML = "<h4>Tu carrito está vacío 🛒</h4>";
         summary.innerHTML = "";
+        
+        updateCartCount();
         return;
     }
 
@@ -40,6 +43,8 @@ function renderCart()
     <h4>Total: $${getTotal()}</h4>
     </div>
   `;
+
+  updateCartCount();
 }
 
 renderCart();
