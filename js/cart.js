@@ -7,7 +7,7 @@ export function getCart()
 }
 
 //Guardar en el carrito
-function saveCart()
+function saveCart(cart)
 {
     localStorage.setItem(CART_KEY, JSON.stringify(cart));
 }

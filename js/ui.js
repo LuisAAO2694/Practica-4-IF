@@ -30,5 +30,5 @@ export function renderProducts(products) {
         btn.addEventListener("click", () => {
             addToCart(products[index]);
         });
-    };
+    });
 }
