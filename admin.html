@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+
+<body class="container mt-5">
+
+  <h2>Panel Admin</h2>
+
+  <!-- FORM -->
+  <form id="productForm" class="mb-4">
+    <input type="hidden" id="productId">
+
+    <input type="text" id="title" placeholder="Nombre" class="form-control mb-2" required>
+    <input type="number" id="price" placeholder="Precio" class="form-control mb-2" required>
+    <input type="text" id="image" placeholder="URL Imagen" class="form-control mb-2" required>
+
+    <button class="btn btn-dark w-100">Guardar</button>
+  </form>
+
+  <!-- LISTA -->
+  <div id="productList"></div>
+
+  <script type="module" src="js/admin.js"></script>
+
+</body>
+</html>

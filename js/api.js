@@ -1,9 +1,23 @@
 const API_URL = "https://fakestoreapi.com/products";
 
-export async function getProducts() 
-{
+export async function getProducts() {
+  //Cacho la API
   const response = await fetch(API_URL);
-  return await response.json();
+  const apiProducts = await response.json();
+
+  //Obtengo los products del admin
+  const localProducts = JSON.parse(localStorage.getItem("adminProducts")) || [];
+
+  //Los normalizar que es importante
+  const formattedLocal = localProducts.map(p => ({
+    id: p.id,
+    title: p.title,
+    price: Number(p.price),
+    image: p.image
+  }));
+
+  //Combino ambos
+  return [...formattedLocal, ...apiProducts];
 }
 
 //Esto era para usar lo de mi practica 1, pero no tenia tantos productos
