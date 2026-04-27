@@ -29,7 +29,10 @@ export function addToCart(product)
     }
 
     saveCart(cart);
-    alert("Producto agregado!");
+    import("./ui.js").then(module => {
+        module.showModal("Producto agregado al carrito!");
+        module.updateCartCount();
+    });
 
     import("./ui.js").then(module => {
         module.updateCartCount();

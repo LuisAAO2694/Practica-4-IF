@@ -45,3 +45,11 @@ export function updateCartCount()
         badge.innerText = count;
     }
 }
+
+export function showModal(message) 
+{
+  const modalText = document.getElementById("modalMessage");
+  modalText.innerText = message;
+
+  $("#cartModal").modal("show"); //Bootstrap4 usa jQuery
+}
